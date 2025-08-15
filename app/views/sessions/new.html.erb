@@ -1,0 +1,17 @@
+<h1>Login</h1>
+<%= form_with url: session_path, method: :post, local: true do |f| %>
+	<div class="mb-3">
+		<%= label_tag :email, 'Email', class: 'form-label' %>
+		<%= text_field_tag :email, params[:email], class: 'form-control' %>
+	</div>
+	<div class="mb-3">
+		<%= label_tag :password, 'Password', class: 'form-label' %>
+		<%= password_field_tag :password, nil, class: 'form-control' %>
+	</div>
+	<div>
+		<%= submit_tag 'Login', class: 'btn btn-primary' %>
+	</div>
+<% end %>
+<% if flash[:alert] %>
+	<p class="text-danger mt-2"><%= flash[:alert] %></p>
+<% end %>

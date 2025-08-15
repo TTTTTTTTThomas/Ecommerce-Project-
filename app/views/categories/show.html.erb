@@ -1,0 +1,16 @@
+<div class="container mt-4">
+	<h1 class="mb-4"><%= @category.name %></h1>
+	<h4>Products in this category:</h4>
+	<div class="row">
+		<% @products.each do |product| %>
+			<div class="col-md-6 col-lg-4 mb-4">
+				<%= render partial: 'products/product_card', locals: { product: product } %>
+			</div>
+		<% end %>
+		<% if @products.empty? %>
+			<div class="col-12">
+				<p class="text-muted">No products in this category yet.</p>
+			</div>
+		<% end %>
+	</div>
+</div>

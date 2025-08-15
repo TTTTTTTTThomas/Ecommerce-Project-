@@ -1,0 +1,39 @@
+<h1>Register</h1>
+<%= form_with model: @user, url: registrations_path, local: true do |f| %>
+  <div class="mb-3">
+    <%= f.label :name, class: 'form-label' %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :email, class: 'form-label' %>
+    <%= f.email_field :email, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :password, class: 'form-label' %>
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :password_confirmation, class: 'form-label' %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :address, class: 'form-label' %>
+    <%= f.text_field :address, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :phone, class: 'form-label' %>
+    <%= f.text_field :phone, class: 'form-control' %>
+  </div>
+  <div>
+    <%= f.submit 'Register', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+<% if @user.errors.any? %>
+  <div class="alert alert-danger mt-3">
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

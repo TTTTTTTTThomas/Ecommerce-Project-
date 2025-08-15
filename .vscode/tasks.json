@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Auto Commit 32 times & Create 3 branches",
+      "type": "shell",
+      "command": "git checkout -b branch1 && git checkout -b branch2 && git checkout -b branch3 && git checkout main && for i in {1..32}; do echo \"Commit $i\" >> auto_commit.txt && git add auto_commit.txt && git commit -m \"Auto commit $i\"; done",
+      "problemMatcher": []
+    }
+  ]
+}

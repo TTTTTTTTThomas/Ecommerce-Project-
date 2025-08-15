@@ -1,0 +1,27 @@
+<div class="container mt-4">
+	<h1 class="mb-4">Order #<%= @order.id %></h1>
+	<p><strong>Status:</strong> <%= @order.status %></p>
+	<p><strong>Total Price:</strong> $<%= @order.total_price %></p>
+	<h4 class="mt-4">Order Items</h4>
+	<table class="table table-bordered align-middle">
+		<thead class="table-light">
+			<tr>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Price at Order</th>
+				<th>Subtotal</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @order.order_items.each do |item| %>
+				<tr>
+					<td><%= link_to item.product.name, product_path(item.product) %></td>
+					<td><%= item.quantity %></td>
+					<td>$<%= item.price_at_order %></td>
+					<td>$<%= item.price_at_order * item.quantity %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<%= link_to 'Back to Products', root_path, class: 'btn btn-primary' %>
+</div>
